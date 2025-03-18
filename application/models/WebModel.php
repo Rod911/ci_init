@@ -8,7 +8,7 @@ class WebModel extends CI_Model {
 	 * @param ?int $page
 	 * @return void
 	 */
-	private function paginate(int $limit = null, int $page = 1) {
+	private function paginate(?int $limit = null, int $page = 1) {
 		if ($limit) {
 			$this->db
 				->limit($limit)

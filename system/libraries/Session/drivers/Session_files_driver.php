@@ -132,6 +132,7 @@ class CI_Session_files_driver extends CI_Session_driver implements CI_Session_dr
 	 */
 	public function open($save_path, $name)
 	{
+		if (!$save_path OR ! is_string($save_path)) return $this->_failure;
 		if ( ! is_dir($save_path))
 		{
 			if ( ! mkdir($save_path, 0700, TRUE))

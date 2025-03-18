@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /PATH_HERE/
+    RewriteBase /
 
     #Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,
@@ -8,7 +8,7 @@
     #'system' can be replaced if you have renamed your system folder.
     RewriteCond %{REQUEST_URI} ^system.*
     RewriteRule ^(.*)$ /index.php?/$1 [L]
-    
+
     #When your application folder isn't in the system folder
     #This snippet prevents user access to the application folder
     #Submitted by: Fabdrol
@@ -31,7 +31,7 @@
 
     ErrorDocument 404 /index.php
 </IfModule>
- 
+
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE image/svg+xml
 AddOutputFilterByType DEFLATE text/plain

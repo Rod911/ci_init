@@ -134,7 +134,7 @@ class MY_Controller extends CI_Controller {
 		$this->template('templates/view_template', $this->data);
 	}
 
-	protected function _add_template(TemplateConfig $options, callable $edit_map = null, callable $edit_prefill = null) {
+	protected function _add_template(TemplateConfig $options, ?callable $edit_map = null, ?callable $edit_prefill = null) {
 		$this->data['message'] = $this->session->flashdata('message');
 		$this->data['edit'] = $this->TemplateModel->get_edit_row($options->table, '', $options->id);
 		$this->data['form_template'] = $this->TemplateModel->{$options->form_template}($this->data['edit'][$options->id] ?? "");
@@ -212,7 +212,7 @@ class MY_Controller extends CI_Controller {
 		redirect($return_url);
 	}
 
-	protected function _submit_template(TemplateConfig $options, callable $process_post_data = null, callable $after_submit = null) {
+	protected function _submit_template(TemplateConfig $options, ?callable $process_post_data = null, ?callable $after_submit = null) {
 		$this->data['form_template'] = $this->TemplateModel->{$options->form_template}();
 		$this->data['view_template'] = $this->TemplateModel->{$options->view_template}(false);
 		$this->TemplateModel->set_validation($this->data['form_template']);
